@@ -9,8 +9,20 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+function getEmailDomain(emailaddress) {
+    // bepaal op welk indexnummer het apenstaartje staat
+    const indexOfApenstaartje = emailaddress.indexOf('@');
+    // knip alles ná het apenstaartje van het emailadres af
+    const domain = emailaddress.substring(indexOfApenstaartje + 2);
 
+    return domain;
+}
 
+const domainOne = getEmailDomain("n.eeken@novi-education.nl");
+const domainTwo = getEmailDomain("t.mellink@novi.nl");
+const domainThree = getEmailDomain("a.wiersma@outlook.com");
+
+console.log(domainOne, domainTwo, domainThree);
 
 /* Opdracht  2 */
 // Schrijf een functie genaamd typeOfEmail, die een emailadres verwacht. De functie checkt of het emailadres een novi domein heeft (medewerker), een novi-education domein (student), of extern domein (zoals gmail of outlook)
@@ -20,7 +32,21 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+function TypeOfEmail(mail) {
 
+    if (mail.includes("education.nl")) {
+        return "student"
+    } else if (mail.includes("novi.nl")) {
+        return "medewerker"
+    } else {
+            return "extern"
+        }
+
+}
+
+console.log(TypeOfEmail("t.mellink@novi.nl"));
+console.log(TypeOfEmail("ovi.nlaapjesk@outlook.com "))
+console.log(TypeOfEmail(".eeken@novi-education.nl"))
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
@@ -34,3 +60,27 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity(validMail) {
+const result = validMail.includes("@")
+const result2 = validMail.includes(",")
+const result3 = validMail.includes(" .")
+    switch(true) {
+        case (result.includes === false):
+    return "false";
+
+        case (result2.includes === true):
+    return "true";
+
+        case (result3 == validMail.length - 1):
+    return "false";
+        default:
+            return "true";
+    }
+
+}
+
+console.log(checkEmailValidity("t.mellink@novi.nl"));
+console.log(checkEmailValidity("ovi.nlaapjesk@outlook.com "));
+console.log(checkEmailValidity(".eeken@novi-education.nl"));
+

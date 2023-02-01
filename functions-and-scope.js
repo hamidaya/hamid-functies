@@ -16,6 +16,20 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+function resultStudents ( number ) {
+    let counter = 0;
+
+    for ( let i = 0; i < grades.length; i++ ) {
+        if ( grades[i] > number ) {
+            counter = counter + 1
+        }
+    }
+    return counter;
+}
+
+const result = resultStudents(7);
+console.log( result);
+
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -27,6 +41,25 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+const array1 =  [6, 4, 5];
+const array2 = [8, 9, 4, 6, 10];
+function cumLaude ( number, number2 ) {
+    let counter = 0;
+
+    for ( let i = 0; i < number.length; i++ ) {
+        if ( array1[i] > number ) {
+            counter = counter + 1
+        if (array2[i] < number2) {
+    counter = counter + 1;
+            }
+        }
+    }
+    return counter;
+}
+
+const result1b = cumLaude(" 7");
+const result2b = cumLaude(" 8")
+console.log( result1b, result2b);
 
 
 
